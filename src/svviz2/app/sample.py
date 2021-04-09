@@ -160,7 +160,7 @@ class Sample(object):
     @property
     def bam(self):
         if self._bam is None:
-            self._bam = pysam.AlignmentFile(self.bam_path, "rb")
+            self._bam = pysam.AlignmentFile(self.bam_path, "rb", reference_filename=self.datahub.genome)
             try:
                 self._bam.fetch()
             except ValueError:
